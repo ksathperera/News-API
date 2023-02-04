@@ -1,9 +1,14 @@
 import React from "react";
-import './NewsItems.css'
+import './NewsItem.css'
 
-const NewsItems = () => {
+const NewsItems = ({title,description, url, urlToImage}) => {
     return (
-        <div>
+        <div className="news-app">
+            <div className="news-items">
+                <img className="news-img" src={urlToImage} alt={urlToImage} />
+                <h3><a href={url}>{title}</a></h3>
+                <p>{description}</p>
+            </div>
 
 
         </div>
