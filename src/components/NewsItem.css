@@ -1,3 +1,5 @@
-.news-app{
-    color:red;
+.news-items{
+    border: black solid 2px;
+    padding: 5px;
+    border-radius: 5px;
 }

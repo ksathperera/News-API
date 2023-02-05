@@ -6,17 +6,29 @@ const NewsList = () => {
     const[articles,setArticles] = useState([])
 
     useEffect(() => {
-        const getArticles = () => {
-            const response = axios.get('https://newsapi.org/v2/everything?q=tesla&from=2023-01-04&sortBy=publishedAt&apiKey=de1697b1f6984e648d9895ab89843a7c')
-            console.log(response)
-            setArticles(response.data.articles)
+        const getArticles = async() => {
+           
+           // Make a GET request to the API endpoint
+            axios.get('https://newsapi.org/v2/everything?q=tesla&from=2023-01-04&sortBy=publishedAt&apiKey=de1697b1f6984e648d9895ab89843a7c')
+                .then(response => {
+                // Handle the response data
+                const data = response.data;
+                console.log(data.articles);
+                setArticles(response.data.articles)
+                })
+                .catch(error => {
+                // Handle any errors
+                console.error(error);
+                });
+
+
         }
         getArticles()
 
     }, [])
         
     return (
-        <div>
+        <div className='row'>
             {articles.map(article => {
                 return(
                     <NewsItems
